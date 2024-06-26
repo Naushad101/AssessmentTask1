@@ -57,7 +57,7 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         char ch = ' ';
         for(int i = s.length()-1; i>=0; i--){
-            if(s.charAt(i)=='.' || s.charAt(i)==',' || s.charAt(i)=='!'){
+            if(s.charAt(i)=='.' || s.charAt(i)==',' || s.charAt(i)=='!' || s.charAt(i)==';'){
                 ch=s.charAt(i);
                 continue;
             }
