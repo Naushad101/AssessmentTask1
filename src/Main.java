@@ -48,7 +48,7 @@ public class Main {
     public static String reverse(String s){
         String[] arr = s.split(" ");
         StringBuilder sb = new StringBuilder();
-        for(int i = arr.length-1; i>=0; i--){
+        for(int i = 0; i<arr.length; i++){
             sb.append(reverseWord(arr[i])+" ");
         }
         return sb.toString().trim();
