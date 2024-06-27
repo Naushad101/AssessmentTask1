@@ -37,16 +37,16 @@ Unit tests are implemented using JUnit 5 and Mockito.
 Tests cover service layer methods (saveQuestions(), getAllQuestion(), getQuestionById(), deleteQuestion(), updateQuestion()).
 
 <h1>Build Steps</h1>
-  1) Ensure you have Java Development Kit (JDK) 8 or higher installed.
-  2) Clone the repository
-  3) Navigate to the project root directory.
-  4) Build the project using Maven.
+  <br>1) Ensure you have Java Development Kit (JDK) 8 or higher installed.
+  <br>2) Clone the repository
+  <br>3) Navigate to the project root directory.
+  <br>4) Build the project using Maven.
 <h1>Execution Steps</h1>
-  1) After building the project, ensure your database is set up and configured in application.properties.
-  2) Start the Spring Boot application.
-  3) The application will start, and you can access the endpoints using tools like Postman:
-      <br>POST /api/questions: Create a new question.
-      <br>GET /api/questions: Retrieve all questions.
-      <br>GET /api/questions/{id}: Retrieve a specific question by ID.
-      <br>PUT /api/questions/{id}: Update a specific question by ID.
-      <br>DELETE /api/questions/{id}: Delete a specific question by ID.
+  <br>1) After building the project, ensure your database is set up and configured in application.properties.
+  <br>2) Start the Spring Boot application.
+  <br>3) The application will start, and you can access the endpoints using tools like Postman:
+        <br>POST /api/questions: Create a new question.
+        <br>GET /api/questions: Retrieve all questions.
+        <br>GET /api/questions/{id}: Retrieve a specific question by ID.
+        <br>PUT /api/questions/{id}: Update a specific question by ID.
+        <br>DELETE /api/questions/{id}: Delete a specific question by ID.
