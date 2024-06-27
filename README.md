@@ -46,8 +46,8 @@ Tests cover service layer methods (saveQuestions(), getAllQuestion(), getQuestio
   <br>2) Start the Spring Boot application.
   <br>3) The application will start, and you can access the endpoints using tools like Postman:
   
-          <br>POST /api/questions: Create a new question.
-          <br>GET /api/questions: Retrieve all questions.
-          <br>GET /api/questions/{id}: Retrieve a specific question by ID.
-          <br>PUT /api/questions/{id}: Update a specific question by ID.
-          <br>DELETE /api/questions/{id}: Delete a specific question by ID.
+          POST /api/questions: Create a new question.
+          GET /api/questions: Retrieve all questions.
+          GET /api/questions/{id}: Retrieve a specific question by ID.
+          PUT /api/questions/{id}: Update a specific question by ID.
+          DELETE /api/questions/{id}: Delete a specific question by ID.
