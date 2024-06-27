@@ -4,9 +4,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.logging.Logger;
 
-public class Main {
+public class ReverseEachWord {
 
-   private final static Logger logger = Logger.getLogger(Main.class.getName());
+   private final static Logger logger = Logger.getLogger(ReverseEachWord.class.getName());
 
     public static void main(String[] args) {
 
