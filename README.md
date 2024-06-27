@@ -1,7 +1,7 @@
 <h1>Project Description:</h1>
 The project is a simple CRUD (Create, Read, Update, Delete) application for managing multiple-choice question tests. It utilizes Spring Boot with Spring Data JPA for database operations and Mockito for unit testing.
-Controller Layer:
-
+<br> <h3>Controller Layer:</h3>
+<br>
 Receives HTTP requests from clients and routes them to appropriate methods.
 Methods include:
 POST /api/questions: saveQuestions(): Creates a new question.
@@ -9,7 +9,7 @@ GET /api/questions: getAllQuestions(): Retrieves all questions.
 GET /api/questions/{id}: getQuestionById(): Retrieves a specific question by ID.
 DELETE /api/questions/{id}: deleteQuestion(): Deletes a specific question.
 PUT /api/questions/{id}: updateQuestion(): Updates a specific question.
-Service Layer:
+<br><h3>Service Layer:</h3>
 
 Contains business logic for managing multiple-choice questions.
 Methods include:
@@ -18,11 +18,11 @@ getAllQuestion(): Retrieves all questions.
 getQuestionById(Long id): Retrieves a specific question by ID.
 deleteQuestion(Long id): Deletes a specific question.
 updateQuestion(Long id, String question, String optionOne, String optionTwo, String optionThree, String optionFour, String correctOption, String category): Updates a specific question.
-Repository Layer:
+<br><h3>Repository Layer:</h3>
 
 Interfaces with the database using Spring Data JPA repositories.
 Implements standard CRUD operations for MultipleChoiceQuestionTest entities.
-Model Layer:
+<br><h3>Model Layer:</h3>
 
 Defines the structure of MultipleChoiceQuestionTest entities using JPA annotations.
 Represents attributes such as question, options, correct answer, category, etc.
