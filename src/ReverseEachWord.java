@@ -1,71 +1,68 @@
+package src;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ReverseEachWord {
 
-   private final static Logger logger = Logger.getLogger(ReverseEachWord.class.getName());
+    private static final Logger logger = Logger.getLogger(ReverseEachWord.class.getName());
 
     public static void main(String[] args) {
+        logger.log(Level.INFO, "Program started");
 
-        logger.info("Pogramm started");
+        String inputFile = "C:\\Users\\naushad.shaikh\\Desktop\\input.txt";
+        String outputFile = "C:\\Users\\naushad.shaikh\\Desktop\\output.txt";
 
-        BufferedWriter writer=null;
-        try{
-         String inputFile = "C:\\Users\\naushad.shaikh\\Desktop\\input.txt";
-            String outPutFile = "C:\\Users\\naushad.shaikh\\Desktop\\output.txt";
-            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-            writer = new BufferedWriter(new FileWriter(outPutFile));
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
 
-            String line=null;
-            while((line=reader.readLine())!=null){
-                String res = reverse(line);
-                System.out.println(res);
-                writer.write(res);
-                writer.newLine();
+            reader.lines()
+                    .map(ReverseEachWord::reverse)
+                    .forEachOrdered(line -> {
+                        try {
+                            System.out.println(line);
+                            writer.write(line);
+                            writer.newLine();
+                        } catch (IOException e) {
+                            logger.log(Level.WARNING, "Error writing to output file", e);
+                        }
+                    });
 
-            }
-
-
+        } catch (IOException e) {
+            logger.log(Level.WARNING, "Error reading input file", e);
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Unexpected error", e);
         }
-        catch (Exception e){
-            logger.warning("File Not Found Exception accured"+e.getMessage());
-        }
-        finally {
-            try {
-                if(writer!=null){
-                    writer.close();
-             }
-            }
-            catch (Exception e){
-                logger.info("Error closing file");
-            }
-        }
+
+        logger.log(Level.INFO, "Program completed");
     }
 
-    public static String reverse(String s){
-        String[] arr = s.split(" ");
-        StringBuilder sb = new StringBuilder();
-        for(int i = 0; i<arr.length; i++){
-            sb.append(reverseWord(arr[i])+" ");
+    public static String reverse(String s) {
+        String[] words = s.split("\\s+");
+        StringBuilder reversed = new StringBuilder();
+        for (String word : words) {
+            reversed.append(reverseWord(word)).append(" ");
         }
-        return sb.toString().trim();
+        return reversed.toString().trim();
     }
-    public static String reverseWord(String s){
-        StringBuilder sb = new StringBuilder();
-        char ch = ' ';
-        for(int i = s.length()-1; i>=0; i--){
-            if(s.charAt(i)=='.' || s.charAt(i)==',' || s.charAt(i)=='!' || s.charAt(i)==';'){
-                ch=s.charAt(i);
-                continue;
-            }
-            else{
-                sb.append(s.charAt(i));
+
+    public static String reverseWord(String s) {
+        StringBuilder reversedWord = new StringBuilder();
+        char punctuation = ' ';
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char ch = s.charAt(i);
+            if (ch == '.' || ch == ',' || ch == '!' || ch == ';') {
+                punctuation = ch;
+            } else {
+                reversedWord.append(ch);
             }
         }
-        sb.append(ch);
-        return sb.toString();
+        reversedWord.append(punctuation);
+        return reversedWord.toString();
     }
 }
